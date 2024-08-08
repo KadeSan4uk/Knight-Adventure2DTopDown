@@ -22,7 +22,7 @@ public class PlayerVisual : MonoBehaviour
 
     private void AdjustPlayerFacingDirection()
     {
-        Vector3 mousePos = InputManager.Instance.GetMousPosition();
+        Vector3 mousePos = InputManager.Instance.GetMousePosition();
         Vector3 playerPosition = Player.Instance.GetPlayerScreenPosition();
 
         if (mousePos.x < playerPosition.x)

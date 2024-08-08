@@ -36,7 +36,7 @@ public class InputManager : MonoBehaviour
         return inputVector;
     }
 
-    public Vector3 GetMousPosition()
+    public Vector3 GetMousePosition()
     {
         Vector3 mousePos = Mouse.current.position.ReadValue();
         return mousePos;

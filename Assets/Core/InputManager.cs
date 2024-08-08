@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.InputSystem;
@@ -5,20 +6,28 @@ using System.Collections.Generic;
 
 public class InputManager : MonoBehaviour
 {
-    private PlayerInputActions _playerInputActions;
-
     public static InputManager Instance { get; private set; }
+
+    public event EventHandler OnPlayerAttack;
+
+    private PlayerInputActions _playerInputActions;
 
     private void Awake()
     {
         Instance = this;
-        TakePlayerMovementControl();
+        GivePlayerActionsControl();
     }
 
-    private void TakePlayerMovementControl()
+    private void GivePlayerActionsControl()
     {
         _playerInputActions = new PlayerInputActions();
         _playerInputActions.Enable();
+        _playerInputActions.Combat.Attack.started += Player_AttackStarted;
+    }
+
+    private void Player_AttackStarted(InputAction.CallbackContext obj)
+    {
+        OnPlayerAttack?.Invoke(this, EventArgs.Empty);
     }
 
     public Vector2 GetMovementVector()

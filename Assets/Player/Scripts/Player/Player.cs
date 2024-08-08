@@ -18,6 +18,16 @@ public class Player : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
     }
 
+    private void Start()
+    {
+        InputManager.Instance.OnPlayerAttack += InputManager_OnPlayerAttack;
+    }
+
+    private void InputManager_OnPlayerAttack(object sender, EventArgs e)
+    {
+        ActiveWeapon.Instance.GetActiveWeapon().Attack();
+    }
+
     private void Update()
     {
         ReadInput();

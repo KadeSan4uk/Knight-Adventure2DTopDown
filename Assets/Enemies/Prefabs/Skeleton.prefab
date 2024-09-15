@@ -293,6 +293,7 @@ MonoBehaviour:
   _roamingDistanceMax: 7
   _roamingDistanceMin: 3
   _roamingTimerMax: 4
+  _isChasingEnemy: 0
 --- !u!61 &5243591558026843831
 BoxCollider2D:
   m_ObjectHideFlags: 0

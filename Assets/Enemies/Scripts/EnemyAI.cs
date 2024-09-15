@@ -5,6 +5,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using KnightAdventure.Utilities;
 using System.Collections.Generic;
+using UnityEngine.InputSystem.XR.Haptics;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -13,15 +14,25 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float _roamingDistanceMin = 3f;
     [SerializeField] private float _roamingTimerMax = 2f;
 
+    [SerializeField] private bool _isChasingEnemy = false;
+    private float _chasingDistance = 4f;
+    private float _chasingSpeedMultiplayer = 2f;
+    private float _roamingSpeed;
+    private float _chasingSpeed;
+
     private NavMeshAgent _navMeshAgent;
-    private State _state;
-    private float _roamingTime;
+    private State _currentState;
+    private float _roamingTimer;
     private Vector3 _roamPosition;
     private Vector3 _startPosition;
 
     private enum State
     {
-        Roaming
+        Idle,
+        Roaming,
+        Chasing,
+        Attacking,
+        Death
     }
 
     private void Awake()
@@ -29,30 +40,91 @@ public class EnemyAI : MonoBehaviour
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _navMeshAgent.updateRotation = false;
         _navMeshAgent.updateUpAxis = false;
-        _state = _startingState;
+        _currentState = _startingState;
+        _roamingSpeed = _navMeshAgent.speed;
+        _chasingSpeed = _navMeshAgent.speed * _chasingSpeedMultiplayer;
     }
 
     private void Update()
     {
-        switch (_state)
+        StateHandler();
+    }
+
+    private void StateHandler()
+    {
+        switch (_currentState)
         {
-            default:
             case State.Roaming:
-                _roamingTime -= Time.deltaTime;
-                if (_roamingTime < 0)
+                _roamingTimer -= Time.deltaTime;
+                if (_roamingTimer < 0)
                 {
                     Roaming();
-                    _roamingTime = _roamingTimerMax;
+                    _roamingTimer = _roamingTimerMax;
                 }
+                CheckCurrentState();
+                break;
+            case State.Chasing:
+                ChasingTarget();
+                CheckCurrentState();
+                break;
+            case State.Attacking:
+                break;
+            case State.Death:
+                break;
+            default:
+            case State.Idle:
                 break;
         }
+    }
+
+    private void CheckCurrentState()
+    {
+        float distanceToPlayer = Vector3.Distance(transform.position, Player.Instance.transform.position);
+        State newState = State.Roaming;
+
+        if (_isChasingEnemy)
+        {
+            if (distanceToPlayer <= _chasingDistance)
+            {
+                newState = State.Chasing;
+            }
+        }
+
+        if (newState != _currentState)
+        {
+            if (newState != State.Chasing)
+            {
+                _navMeshAgent.ResetPath();
+                _navMeshAgent.speed = _chasingSpeed;
+            }
+            else if (newState == State.Roaming)
+            {
+                _navMeshAgent.speed = _roamingSpeed;
+                _roamingTimer = 0f;
+            }
+            _currentState = newState;
+        }
+    }
+
+    private void ChasingTarget()
+    {
+        _navMeshAgent.SetDestination(Player.Instance.transform.position);
+    }
+
+    public bool IsRunning()
+    {
+        if (_navMeshAgent.velocity == Vector3.zero)
+        {
+            return false;
+        }
+        else return true;
     }
 
     private void Roaming()
     {
         _startPosition = transform.position;
         _roamPosition = GetRoamingPosition();
-        ChangeFacingDirection( _startPosition, _roamPosition );
+        ChangeFacingDirection(_startPosition, _roamPosition);
         _navMeshAgent.SetDestination(_roamPosition);
     }
 
@@ -63,9 +135,9 @@ public class EnemyAI : MonoBehaviour
 
     private void ChangeFacingDirection(Vector3 soursePosition, Vector3 targetPosition)
     {
-        if (soursePosition.x > targetPosition.x)        
+        if (soursePosition.x > targetPosition.x)
             transform.rotation = Quaternion.Euler(0, -180, 0);
         else//вращение обьекта по единичному вектору(Quaternion) по осям(Euler) X,Y,Z
-            transform.rotation = Quaternion.Euler(0,0,0);        
+            transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 }

@@ -17,14 +17,22 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private bool _isChasingEnemy = false;
     private float _chasingDistance = 4f;
     private float _chasingSpeedMultiplayer = 2f;
-    private float _roamingSpeed;
-    private float _chasingSpeed;
+
+    [SerializeField] private bool _isAttackingEnemy = false;
+    private float _attackingDistance = 2f;
+    private float _attackRate = 2f;
+    private float _nextAttackTime = 0f;
 
     private NavMeshAgent _navMeshAgent;
     private State _currentState;
     private float _roamingTimer;
     private Vector3 _roamPosition;
     private Vector3 _startPosition;
+
+    private float _roamingSpeed;
+    private float _chasingSpeed;
+
+    public event EventHandler OnEnemyAttack;
 
     private enum State
     {
@@ -68,12 +76,23 @@ public class EnemyAI : MonoBehaviour
                 CheckCurrentState();
                 break;
             case State.Attacking:
+                AttackingTarget();
+                CheckCurrentState();
                 break;
             case State.Death:
                 break;
             default:
             case State.Idle:
                 break;
+        }
+    }
+
+    private void AttackingTarget()
+    {
+        if (Time.time > _nextAttackTime)
+        {
+            OnEnemyAttack?.Invoke(this, EventArgs.Empty);
+            _nextAttackTime = Time.time + _attackRate;
         }
     }
 
@@ -90,6 +109,14 @@ public class EnemyAI : MonoBehaviour
             }
         }
 
+        if (_isAttackingEnemy)
+        {
+            if (distanceToPlayer < _attackingDistance)
+            {
+                newState = State.Attacking;
+            }
+        }
+
         if (newState != _currentState)
         {
             if (newState != State.Chasing)
@@ -102,6 +129,11 @@ public class EnemyAI : MonoBehaviour
                 _navMeshAgent.speed = _roamingSpeed;
                 _roamingTimer = 0f;
             }
+            else if (newState == State.Attacking)
+            {
+                _navMeshAgent.ResetPath();
+            }
+
             _currentState = newState;
         }
     }

@@ -16,7 +16,7 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField] private bool _isChasingEnemy = false;
     private float _chasingDistance = 4f;
-    private float _chasingSpeedMultiplayer = 2f;
+    private float _chasingSpeedMultiplier = 2f;
 
     [SerializeField] private bool _isAttackingEnemy = false;
     private float _attackingDistance = 2f;
@@ -50,7 +50,7 @@ public class EnemyAI : MonoBehaviour
         _navMeshAgent.updateUpAxis = false;
         _currentState = _startingState;
         _roamingSpeed = _navMeshAgent.speed;
-        _chasingSpeed = _navMeshAgent.speed * _chasingSpeedMultiplayer;
+        _chasingSpeed = _navMeshAgent.speed * _chasingSpeedMultiplier;
     }
 
     private void Update()

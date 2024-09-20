@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2798071788276003764}
   - component: {fileID: 4928696584693992477}
   - component: {fileID: 3706992898609140143}
+  - component: {fileID: 9210694400722277224}
   m_Layer: 0
   m_Name: SkeletonVisual
   m_TagString: Untagged
@@ -107,6 +108,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9210694400722277224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663234755760094427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a6afe5458e41404a873bba3dcba4246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8004744549286380570
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,6 +307,7 @@ MonoBehaviour:
   _roamingDistanceMin: 3
   _roamingTimerMax: 4
   _isChasingEnemy: 0
+  _isAttackingEnemy: 0
 --- !u!61 &5243591558026843831
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a6afe5458e41404a873bba3dcba4246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyAI: {fileID: 505349277083813180}
 --- !u!1 &8004744549286380570
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,9 +306,13 @@ MonoBehaviour:
   _startingState: 1
   _roamingDistanceMax: 7
   _roamingDistanceMin: 3
-  _roamingTimerMax: 4
-  _isChasingEnemy: 0
+  _roamingTimerMax: 8
+  _isChasingEnemy: 1
+  _chasingDistance: 4
+  _chasingSpeedMultiplier: 2
   _isAttackingEnemy: 0
+  _attackingDistance: 2
+  _attackRate: 2
 --- !u!61 &5243591558026843831
 BoxCollider2D:
   m_ObjectHideFlags: 0

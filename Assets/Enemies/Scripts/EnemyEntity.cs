@@ -9,6 +9,8 @@ public class EnemyEntity : MonoBehaviour
     [SerializeField] private int _maxHealth;
     private int _curentHealth;
 
+    private PolygonCollider2D _polygonCollider2D;
+
     private void Start()
     {
         _curentHealth = _maxHealth;

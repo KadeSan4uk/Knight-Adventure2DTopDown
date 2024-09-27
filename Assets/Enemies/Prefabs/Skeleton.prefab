@@ -216,8 +216,9 @@ GameObject:
   - component: {fileID: 383286634203816777}
   - component: {fileID: 3365408809546168116}
   - component: {fileID: 1089184855768778907}
-  - component: {fileID: 505349277083813180}
   - component: {fileID: 5243591558026843831}
+  - component: {fileID: 6797550119043883440}
+  - component: {fileID: 505349277083813180}
   - component: {fileID: -4118260734037850733}
   m_Layer: 0
   m_Name: Skeleton
@@ -291,28 +292,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &505349277083813180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8425252984187055572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80a0894d974dbea43b1c8d7a59f72521, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startingState: 1
-  _roamingDistanceMax: 7
-  _roamingDistanceMin: 3
-  _roamingTimerMax: 8
-  _isChasingEnemy: 1
-  _chasingDistance: 4
-  _chasingSpeedMultiplier: 2
-  _isAttackingEnemy: 0
-  _attackingDistance: 2
-  _attackRate: 2
 --- !u!61 &5243591558026843831
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -358,6 +337,101 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1020541, y: 2.5857906}
   m_EdgeRadius: 0
+--- !u!60 &6797550119043883440
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8425252984187055572}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 3.6298234, y: 1.8269126}
+      - {x: 3.317747, y: 2.216521}
+      - {x: 2.8094804, y: 2.4955056}
+      - {x: 2.1416113, y: 2.597835}
+      - {x: 1.2826805, y: 2.5964499}
+      - {x: 1.32389, y: 2.4266756}
+      - {x: 1.3229519, y: 2.392287}
+      - {x: 1.3160344, y: 2.3732646}
+      - {x: 1.3522545, y: 2.2558126}
+      - {x: 1.3239677, y: 2.1009192}
+      - {x: 1.2242945, y: 1.7961726}
+      - {x: 1.2203817, y: 1.4154009}
+      - {x: 1.0769784, y: 1.257281}
+      - {x: 0.9643397, y: 1.1782746}
+      - {x: 0.8646215, y: 1.1085925}
+      - {x: 0.69378656, y: 1.2022529}
+      - {x: 0.104635835, y: 0.8735862}
+      - {x: 0.36764756, y: 0.7010787}
+      - {x: 0.5845855, y: 0.6334336}
+      - {x: 1.5207932, y: 0.45251465}
+      - {x: 2.1698158, y: 0.48491597}
+      - {x: 2.4280345, y: 0.53897446}
+      - {x: 2.612524, y: 0.5823445}
+      - {x: 3.03579, y: 0.75547713}
+      - {x: 3.3470113, y: 0.9767746}
+      - {x: 3.4305992, y: 1.0677803}
+      - {x: 3.5184245, y: 1.1900576}
+      - {x: 3.6358366, y: 1.3829291}
+  m_UseDelaunayMesh: 0
+--- !u!114 &505349277083813180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8425252984187055572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80a0894d974dbea43b1c8d7a59f72521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startingState: 1
+  _roamingDistanceMax: 7
+  _roamingDistanceMin: 3
+  _roamingTimerMax: 8
+  _isChasingEnemy: 1
+  _chasingDistance: 4
+  _chasingSpeedMultiplier: 2
+  _isAttackingEnemy: 0
+  _attackingDistance: 2
+  _attackRate: 2
 --- !u!114 &-4118260734037850733
 MonoBehaviour:
   m_ObjectHideFlags: 0

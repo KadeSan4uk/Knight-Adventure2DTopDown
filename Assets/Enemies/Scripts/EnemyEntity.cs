@@ -19,6 +19,11 @@ public class EnemyEntity : MonoBehaviour
         _curentHealth = _maxHealth;
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Attack");
+    }
+
     public void TakeDamage(int damage)
     {
         _curentHealth -= damage;

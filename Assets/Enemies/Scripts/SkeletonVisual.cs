@@ -11,10 +11,21 @@ public class SkeletonVisual : MonoBehaviour
 
     private const string IS_RUNNING = "IsRunning";
     private const string CHASING_SPEED_MULTIPLIER = "ChasingSpeedMultiplier";
+    private const string ATTACK = "Attack";
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        _enemyAI.OnEnemyAttack += _enemyAI_OnEnemyAttack;
+    }
+
+    private void OnDestroy()
+    {
+        _enemyAI.OnEnemyAttack -= _enemyAI_OnEnemyAttack;
     }
 
     private void Update()
@@ -31,5 +42,10 @@ public class SkeletonVisual : MonoBehaviour
     public void TriggerAttackAnimationTurnOn()
     {
         _enemyEntity.PolygonColliderTurnOn();
+    }
+
+    private void _enemyAI_OnEnemyAttack(object sender, System.EventArgs e)
+    {
+        _animator.SetTrigger(ATTACK);
     }
 }

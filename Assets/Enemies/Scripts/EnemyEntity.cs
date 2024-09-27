@@ -1,8 +1,4 @@
-using System;
 using UnityEngine;
-using System.Collections;
-using JetBrains.Annotations;
-using System.Collections.Generic;
 
 [RequireComponent(typeof(PolygonCollider2D))]//adding this component to the inspector if it is missing.
 

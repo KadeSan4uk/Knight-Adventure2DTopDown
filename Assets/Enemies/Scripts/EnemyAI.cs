@@ -1,11 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.AI;
-using System.Collections;
-using Unity.VisualScripting;
 using KnightAdventure.Utilities;
-using System.Collections.Generic;
-using UnityEngine.InputSystem.XR.Haptics;
 
 public class EnemyAI : MonoBehaviour
 {

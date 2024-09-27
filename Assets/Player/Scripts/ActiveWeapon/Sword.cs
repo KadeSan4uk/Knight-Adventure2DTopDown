@@ -1,8 +1,5 @@
 using System;
 using UnityEngine;
-using System.Collections;
-using UnityEngine.EventSystems;
-using System.Collections.Generic;
 
 public class Sword : MonoBehaviour
 {

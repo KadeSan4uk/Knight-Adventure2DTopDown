@@ -20,5 +20,4 @@ public class SkeletonVisual : MonoBehaviour
         _animator.SetBool(IS_RUNNING, _enemyAI.IsRunning());
         _animator.SetFloat(CHASING_SPEED_MULTIPLIER, _enemyAI.GetRoamingAnimationSpeed());
     }
-
 }

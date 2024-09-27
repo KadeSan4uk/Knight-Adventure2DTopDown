@@ -18,18 +18,6 @@ public class InputManager : MonoBehaviour
         GivePlayerActionsControl();
     }
 
-    private void GivePlayerActionsControl()
-    {
-        _playerInputActions = new PlayerInputActions();
-        _playerInputActions.Enable();
-        _playerInputActions.Combat.Attack.started += Player_AttackStarted;
-    }
-
-    private void Player_AttackStarted(InputAction.CallbackContext obj)
-    {
-        OnPlayerAttack?.Invoke(this, EventArgs.Empty);
-    }
-
     public Vector2 GetMovementVector()
     {
         Vector2 inputVector = _playerInputActions.Player.Move.ReadValue<Vector2>();
@@ -40,5 +28,17 @@ public class InputManager : MonoBehaviour
     {
         Vector3 mousePos = Mouse.current.position.ReadValue();
         return mousePos;
+    }
+
+    private void GivePlayerActionsControl()
+    {
+        _playerInputActions = new PlayerInputActions();
+        _playerInputActions.Enable();
+        _playerInputActions.Combat.Attack.started += Player_AttackStarted;
+    }
+
+    private void Player_AttackStarted(InputAction.CallbackContext obj)
+    {
+        OnPlayerAttack?.Invoke(this, EventArgs.Empty);
     }
 }

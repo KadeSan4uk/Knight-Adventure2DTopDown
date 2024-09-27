@@ -24,6 +24,17 @@ public class Player : MonoBehaviour
         InputManager.Instance.OnPlayerAttack += InputManager_OnPlayerAttack;
     }
 
+    public bool IsRunning()
+    {
+        return _isRunning;
+    }
+
+    public Vector3 GetPlayerScreenPosition()
+    {
+        Vector3 playerScreenPosition = Camera.main.WorldToScreenPoint(transform.position);
+        return playerScreenPosition;
+    }
+
     private void InputManager_OnPlayerAttack(object sender, EventArgs e)
     {
         ActiveWeapon.Instance.GetActiveWeapon().Attack();
@@ -32,7 +43,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         ReadInput();
-    }   
+    }
 
     private void FixedUpdate()
     {
@@ -52,16 +63,5 @@ public class Player : MonoBehaviour
     private void ReadInput()
     {
         _inputVector = InputManager.Instance.GetMovementVector();
-    }
-
-    public bool IsRunning()
-    {
-        return _isRunning;
-    }
-
-    public Vector3 GetPlayerScreenPosition()
-    {
-        Vector3 playerScreenPosition = Camera.main.WorldToScreenPoint(transform.position);
-        return playerScreenPosition;
     }
 }

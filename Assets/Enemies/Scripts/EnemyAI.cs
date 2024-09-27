@@ -49,18 +49,37 @@ public class EnemyAI : MonoBehaviour
 
     private void Awake()
     {
-        _navMeshAgent = GetComponent<NavMeshAgent>();
-        _navMeshAgent.updateRotation = false;
-        _navMeshAgent.updateUpAxis = false;
-        _currentState = _startingState;
-        _roamingSpeed = _navMeshAgent.speed;
-        _chasingSpeed = _navMeshAgent.speed * _chasingSpeedMultiplier;
+        SetupNavigationAndState();
     }
 
     private void Update()
     {
         StateHandler();
         MovementDirectionHandler();
+    }
+
+    public bool IsRunning()
+    {
+        if (_navMeshAgent.velocity == Vector3.zero)
+        {
+            return false;
+        }
+        else return true;
+    }
+
+    public float GetRoamingAnimationSpeed()
+    {
+        return _navMeshAgent.speed / _roamingSpeed;
+    }
+
+    private void SetupNavigationAndState()
+    {
+        _navMeshAgent = GetComponent<NavMeshAgent>();
+        _navMeshAgent.updateRotation = false;
+        _navMeshAgent.updateUpAxis = false;
+        _currentState = _startingState;
+        _roamingSpeed = _navMeshAgent.speed;
+        _chasingSpeed = _navMeshAgent.speed * _chasingSpeedMultiplier;
     }
 
     private void StateHandler()
@@ -166,25 +185,11 @@ public class EnemyAI : MonoBehaviour
         _navMeshAgent.SetDestination(Player.Instance.transform.position);
     }
 
-    public bool IsRunning()
-    {
-        if (_navMeshAgent.velocity == Vector3.zero)
-        {
-            return false;
-        }
-        else return true;
-    }
-
     private void Roaming()
     {
         _startPosition = transform.position;
         _roamPosition = GetRoamingPosition();
         _navMeshAgent.SetDestination(_roamPosition);
-    }
-
-    public float GetRoamingAnimationSpeed()
-    {
-        return _navMeshAgent.speed / _roamingSpeed;
     }
 
     private Vector3 GetRoamingPosition()

@@ -71,6 +71,12 @@ public class EnemyAI : MonoBehaviour
         return _navMeshAgent.speed / _roamingSpeed;
     }
 
+    public void SetDeathState()
+    {
+        _navMeshAgent.ResetPath();
+        _currentState = State.Death;
+    }
+
     private void SetupNavigationAndState()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
@@ -148,7 +154,7 @@ public class EnemyAI : MonoBehaviour
             if (distanceToPlayer <= _chasingDistance)
             {
                 newState = State.Chasing;
-            }            
+            }
         }
 
         if (_isAttackingEnemy)

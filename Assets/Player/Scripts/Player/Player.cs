@@ -1,27 +1,59 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
-[SelectionBase]
+[SelectionBase]//This object will be selected when clicking on any child object of this one on the scene.  
 
 public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
-    private Rigidbody2D _rb;
+    public event EventHandler OnPlayerDeath;
+
     [SerializeField] private float _movingSpeed = 5f;
+    [SerializeField] private int _maxHealth = 10;
+    [SerializeField] private float _damageRecoveryTime = 0.5f;
+
+    private Vector2 _inputVector;
+
+    private Rigidbody2D _rb;
+    private KnockBack _knockBack;
+
     private float _minMovingSpeed = 0.1f;
     private bool _isRunning = false;
-    private Vector2 _inputVector;
+
+    private int _currentHealth;
+    private bool _canTakeDamage;
+    private bool _isAlive;
 
     private void Awake()
     {
         Instance = this;
         _rb = GetComponent<Rigidbody2D>();
+        _knockBack = GetComponent<KnockBack>();
     }
 
     private void Start()
     {
+        _canTakeDamage = true;
+        _isAlive = true;
+        _currentHealth = _maxHealth;
         InputManager.Instance.OnPlayerAttack += InputManager_OnPlayerAttack;
     }
+
+    private void Update()
+    {
+        ReadInput();
+    }
+
+    private void FixedUpdate()
+    {
+        if (_knockBack.IsGettingKcnokedBack)
+            return;
+
+        HandleMovement();
+    }
+
+    public bool IsAlive() => _isAlive;
 
     public bool IsRunning()
     {
@@ -34,19 +66,42 @@ public class Player : MonoBehaviour
         return playerScreenPosition;
     }
 
+    public void TakeDamage(Transform damageSource, int damage)
+    {
+        if (_canTakeDamage && _isAlive)
+        {
+            _canTakeDamage = false;
+            _currentHealth = Math.Max(0, _currentHealth -= damage);
+            _knockBack.GetKnockedBack(damageSource);
+
+            StartCoroutine(DamageRecoveryRoutin());
+        }
+
+        DetectDeath();
+    }
+
+    private void DetectDeath()
+    {
+        if (_currentHealth >= 0 && _isAlive)
+        {
+            _isAlive = false;
+            _knockBack.StopKnockBackMovement();
+            InputManager.Instance.DisableMovement();
+
+            OnPlayerDeath?.Invoke(this, EventArgs.Empty);
+
+        }
+    }
+
+    private IEnumerator DamageRecoveryRoutin()
+    {
+        yield return new WaitForSeconds(_damageRecoveryTime);
+        _canTakeDamage = true;
+    }
+
     private void InputManager_OnPlayerAttack(object sender, EventArgs e)
     {
         ActiveWeapon.Instance.GetActiveWeapon().Attack();
-    }
-
-    private void Update()
-    {
-        ReadInput();
-    }
-
-    private void FixedUpdate()
-    {
-        HandleMovement();
     }
 
     private void HandleMovement()

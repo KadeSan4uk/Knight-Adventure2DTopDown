@@ -16,6 +16,11 @@ public class InputManager : MonoBehaviour
         GivePlayerActionsControl();
     }
 
+    public void DisableMovement()
+    {
+        _playerInputActions.Disable();
+    }
+
     public Vector2 GetMovementVector()
     {
         Vector2 inputVector = _playerInputActions.Player.Move.ReadValue<Vector2>();

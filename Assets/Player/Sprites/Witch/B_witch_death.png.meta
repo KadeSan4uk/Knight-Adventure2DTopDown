@@ -136,169 +136,253 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hero_Run_0
+      name: B_witch_death_0
       rect:
         serializedVersion: 2
-        x: 42
-        y: 30
-        width: 14
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 432
+        width: 32
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8939832b8d12e434b9ccc5d72ccb6c73
-      internalID: -1930644099
+      spriteID: 9023684b1a17e0e488c521303aac0b6d
+      internalID: 1686926079
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero_Run_1
+      name: B_witch_death_1
       rect:
         serializedVersion: 2
-        x: 138
-        y: 30
-        width: 14
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 384
+        width: 32
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 098171d36be94fa4bb2e720e9b0418e0
-      internalID: -1673928920
+      spriteID: 487dc76b2246d13428999a96b85e5cb0
+      internalID: 1388289255
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero_Run_2
+      name: B_witch_death_2
       rect:
         serializedVersion: 2
-        x: 234
-        y: 30
-        width: 14
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 336
+        width: 32
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ff5765af00e85744a05df8184522a0a
-      internalID: 269917609
+      spriteID: af71f6b0fdbf8d240b00af7d887cd9d3
+      internalID: 2113476461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero_Run_3
+      name: B_witch_death_3
       rect:
         serializedVersion: 2
-        x: 330
-        y: 30
-        width: 14
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 288
+        width: 32
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2487f2b512d16f49abfa34e024b6a21
-      internalID: 1835917643
+      spriteID: effc4e334bf5cfd4bbb896c66d5c1acf
+      internalID: -16860149
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero_Run_4
+      name: B_witch_death_4
       rect:
         serializedVersion: 2
-        x: 426
-        y: 30
-        width: 14
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 240
+        width: 32
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 050a3e2e75314b34aacf0adc0b10d231
-      internalID: 1976236749
+      spriteID: cc387952ea4d2074daaa69a32958aea0
+      internalID: 1053535145
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero_Run_5
+      name: B_witch_death_5
       rect:
         serializedVersion: 2
-        x: 521
-        y: 30
-        width: 14
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 158af80ee2b3c7344960135bd91d9928
-      internalID: -1709487046
+      spriteID: e0eb8df490579c34bbeff5cd7eba0e6b
+      internalID: 1645811983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero_Run_6
+      name: B_witch_death_6
       rect:
         serializedVersion: 2
-        x: 617
-        y: 30
-        width: 14
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 160
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9e7ee3a6c717484694450b3c08a0128
-      internalID: -1891990213
+      spriteID: ac0b1076fd9ce77498b50ee2847fcb87
+      internalID: 1419651960
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero_Run_7
+      name: B_witch_death_7
       rect:
         serializedVersion: 2
-        x: 713
-        y: 30
-        width: 14
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 192
+        width: 32
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4470fade3b14034586dc428de6cd899
-      internalID: 177576885
+      spriteID: 061b854cb9990d7448680d637390eba2
+      internalID: 1129706056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B_witch_death_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75cf30a4f4c535440959c0fa24fa9e3f
+      internalID: -640486474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B_witch_death_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acbbc0124fd126f43bdceeff610d1993
+      internalID: 1703266495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B_witch_death_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61b5009f8e856714bb5e9cfabd7d9817
+      internalID: -1118569638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B_witch_death_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 456cf058b9f302949ae7bbe08753166a
+      internalID: 1696571978
       vertices: []
       indices: 
       edges: []
@@ -314,14 +398,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Hero_Run_0: -1930644099
-      Hero_Run_1: -1673928920
-      Hero_Run_2: 269917609
-      Hero_Run_3: 1835917643
-      Hero_Run_4: 1976236749
-      Hero_Run_5: -1709487046
-      Hero_Run_6: -1891990213
-      Hero_Run_7: 177576885
+      B_witch_death_0: 1686926079
+      B_witch_death_1: 1388289255
+      B_witch_death_10: -1118569638
+      B_witch_death_11: 1696571978
+      B_witch_death_2: 2113476461
+      B_witch_death_3: -16860149
+      B_witch_death_4: 1053535145
+      B_witch_death_5: 1645811983
+      B_witch_death_6: 1419651960
+      B_witch_death_7: 1129706056
+      B_witch_death_8: -640486474
+      B_witch_death_9: 1703266495
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SceletonSO
   m_EditorClassIdentifier: 
   enemyName: Sceleton
-  enemyHealth: 5
+  enemyHealth: 10
   enemyDamageAmount: 1

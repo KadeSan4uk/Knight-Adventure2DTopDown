@@ -68,32 +68,47 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(Transform damageSource, int damage)
     {
-        if (_canTakeDamage && _isAlive)
-        {
-            _canTakeDamage = false;
-            _currentHealth = Math.Max(0, _currentHealth -= damage);
-            _knockBack.GetKnockedBack(damageSource);
+        if (!_canTakeDamage || !_isAlive) return;
 
-            StartCoroutine(DamageRecoveryRoutin());
-        }
-
+        ApplyDamage(damage);
         DetectDeath();
+
+        if (!_isAlive) return;
+
+        HandleKnockBack(damageSource);
+        StartDamageRecovery();
+    }
+
+    private void HandleKnockBack(Transform damageSource)
+    {
+        _canTakeDamage = false;
+        _knockBack.GetKnockedBack(damageSource);
+    }
+
+    private void StartDamageRecovery()
+    {
+        StartCoroutine(DamageRecoveryRoutine());
+    }
+
+    private void ApplyDamage(int damage)
+    {
+        _currentHealth -= damage;
+        _currentHealth = Math.Max(0, _currentHealth);
     }
 
     private void DetectDeath()
     {
-        if (_currentHealth >= 0 && _isAlive)
+        if (_currentHealth <= 0 && _isAlive)
         {
             _isAlive = false;
             _knockBack.StopKnockBackMovement();
             InputManager.Instance.DisableMovement();
 
             OnPlayerDeath?.Invoke(this, EventArgs.Empty);
-
         }
     }
 
-    private IEnumerator DamageRecoveryRoutin()
+    private IEnumerator DamageRecoveryRoutine()
     {
         yield return new WaitForSeconds(_damageRecoveryTime);
         _canTakeDamage = true;

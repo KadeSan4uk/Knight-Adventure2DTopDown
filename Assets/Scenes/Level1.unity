@@ -1424,7 +1424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movingSpeed: 6
-  _maxHealth: 50
+  _maxHealth: 10
   _damageRecoveryTime: 0.5
 --- !u!50 &1913160102
 Rigidbody2D:
@@ -1651,10 +1651,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -4118260734037850733, guid: b6510eb02b8fe0d419abed3d1f23b219, type: 3}
-      propertyPath: _enemySO
-      value: 
-      objectReference: {fileID: 11400000, guid: 27ac546d40008e84d9efd711cdf752b8, type: 2}
     - target: {fileID: 383286634203816777, guid: b6510eb02b8fe0d419abed3d1f23b219, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.96

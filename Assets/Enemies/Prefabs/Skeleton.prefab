@@ -446,4 +446,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eea8beae142be864d8b6ad7702083457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 20
+  _enemySO: {fileID: 11400000, guid: 27ac546d40008e84d9efd711cdf752b8, type: 2}
